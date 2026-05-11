@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jennyfer Ribeiro | Sobre Mim</title>
+  <!-- Folha de estilos global -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Estilos específicos desta página -->
+  <style>
+    /* === HERO - Seção de apresentação === */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding: 3rem 0 2rem;
+      flex-wrap: wrap;
+    }
+
+    /* Avatar com inicial do nome */
+    .hero-avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cor-primaria), #2a5a8c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 8px 32px rgba(26, 58, 92, 0.25);
+      border: 4px solid var(--cor-secundaria);
+    }
+
+    .hero-info h1 {
+      font-size: 2.6rem;
+      color: var(--cor-primaria);
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-info .subtitulo {
+      font-size: 1.15rem;
+      color: var(--cor-secundaria);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .hero-info p {
+      color: var(--cor-texto-suave);
+      max-width: 520px;
+      font-size: 1rem;
+    }
+
+    /* Badges de localização e área */
+    .hero-badges {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+
+    /* === GRADE DE CARDS: Sobre / Hobbies === */
+    .grade-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .card h3 {
+      color: var(--cor-primaria);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card p, .card ul {
+      color: var(--cor-texto-suave);
+      font-size: 0.97rem;
+    }
+
+    .card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .card ul li::before {
+      content: '→ ';
+      color: var(--cor-secundaria);
+      font-weight: 700;
+    }
+
+    /* === BARRA DE HABILIDADES === */
+    .habilidades {
+      margin-top: 2.5rem;
+    }
+
+    .skill-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      color: var(--cor-texto);
+    }
+
+    .skill-barra {
+      height: 8px;
+      background-color: var(--cor-borda);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* Animação da barra ao carregar */
+    .skill-progresso {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cor-primaria), var(--cor-secundaria));
+      border-radius: 4px;
+      width: 0;
+      transition: width 1.2s ease;
+    }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; text-align: center; }
+      .hero-badges { justify-content: center; }
+      .grade-2 { grid-template-columns: 1fr; }
+      .hero-info h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       NAVEGAÇÃO PRINCIPAL (compartilhada em todas as páginas)
+       ============================================ -->
+  <nav aria-label="Navegação principal">
+    <div class="nav-container">
+      <span class="nav-logo">Jennyfer Ribeiro</span>
+
+      <!-- Menu hambúrguer para mobile -->
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Links de navegação -->
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Sobre Mim</a></li>
+        <li><a href="formacao.html">Formação</a></li>
+        <li><a href="portfolio.html">Portfólio</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+
+      <!-- Botão de alternância de tema -->
+      <button id="btn-tema" aria-label="Alternar tema">🌙 Escuro</button>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       CONTEÚDO PRINCIPAL
+       ============================================ -->
+  <main>
+
+    <!-- Hero: apresentação rápida -->
+    <section class="hero" aria-label="Apresentação">
+      <div class="hero-avatar" aria-hidden="true">J</div>
+      <div class="hero-info">
+        <h1>Jennyfer de Souza Ribeiro</h1>
+        <p class="subtitulo">Estudante de Tecnologia · Criadora de Soluções</p>
+        <p>Olá! Sou a Jennyfer, estudante apaixonada por tecnologia e desenvolvimento web. Estou sempre em busca de novos aprendizados e oportunidades para crescer profissionalmente.</p>
+        <div class="hero-badges">
+          <span class="tag">📍 Brasil</span>
+          <span class="tag">💻 Desenvolvimento Web</span>
+          <span class="tag">🎓 Em formação</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards: sobre mim e hobbies -->
+    <div class="grade-2">
+
+      <!-- Card: Quem sou eu -->
+      <div class="card">
+        <h3>👩 Quem sou eu</h3>
+        <p>
+          Sou uma estudante dedicada, curiosa e comprometida com meu crescimento pessoal e profissional. Acredito que a tecnologia é uma ferramenta poderosa para transformar o mundo e estou sempre buscando aprender mais sobre ela.
+        </p>
+        <p style="margin-top:1rem;">
+          Organizada e proativa, gosto de trabalhar em equipe e enfrentar desafios com criatividade e determinação.
+        </p>
+      </div>
+
+      <!-- Card: Hobbies e interesses -->
+      <div class="card">
+        <h3>🎯 Hobbies &amp; Interesses</h3>
+        <ul>
+          <li>Leitura de livros de tecnologia e ficção científica</li>
+          <li>Fotografia e design gráfico</li>
+          <li>Aprender novos idiomas</li>
+          <li>Podcasts sobre inovação e empreendedorismo</li>
+          <li>Praticar yoga e meditação</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Seção de habilidades com barras animadas -->
+    <section class="card habilidades" style="margin-top:1.5rem;" aria-label="Habilidades">
+      <h3>🛠️ Habilidades Técnicas</h3>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>HTML5</span><span>80%</span></div>
+        <div class="skill-barra"><div class="skill-progresso" data-largura="80"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>CSS3</span><span>70%</span></div>
+        <div class="skill-barra"><div class="skill-progresso" data-largura="70"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>JavaScript</span><span>55%</span></div>
+        <div class="skill-barra"><div class="skill-progresso" data-largura="55"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>Git &amp; GitHub</span><span>60%</span></div>
+        <div class="skill-barra"><div class="skill-progresso" data-largura="60"></div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       RODAPÉ
+       ============================================ -->
+  <footer>
+    <p>&copy; 2025 Jennyfer de Souza Ribeiro · Todos os direitos reservados</p>
+  </footer>
+
+  <!-- Script compartilhado: tema, menu, link ativo -->
+  <script src="js/main.js"></script>
+
+  <script>
+    // ============================================
+    // ANIMAÇÃO DAS BARRAS DE HABILIDADE
+    // Inicia a animação após o carregamento da página
+    // ============================================
+    window.addEventListener('load', function () {
+      document.querySelectorAll('.skill-progresso').forEach(function (barra) {
+        var largura = barra.getAttribute('data-largura');
+        // Pequeno delay para a animação ser perceptível
+        setTimeout(function () {
+          barra.style.width = largura + '%';
+        }, 300);
+      });
+    });
+  </script>
+
+</body>
+</html>
