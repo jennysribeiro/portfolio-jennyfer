@@ -1,300 +1,311 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jennyfer Ribeiro | Formação</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* === LINHA DO TEMPO DE FORMAÇÃO === */
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
-      margin-top: 2rem;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formação - Jennyfer Ribeiro</title>
+    
+    <style>
+        /* Estilos Gerais do Site (Padronizado com as outras páginas) */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
 
-    /* Linha vertical à esquerda */
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(to bottom, var(--cor-primaria), var(--cor-secundaria));
-      border-radius: 3px;
-    }
+        /* Menu de Navegação */
+        nav {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    /* Cada item da timeline */
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
-      background-color: var(--cor-fundo-card);
-      border: 1px solid var(--cor-borda);
-      border-radius: var(--raio);
-      padding: 1.5rem;
-      box-shadow: var(--sombra);
-      transition: box-shadow var(--transicao), transform var(--transicao), background-color var(--transicao);
-    }
+        .logo {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #2a5a8c;
+        }
 
-    .timeline-item:hover {
-      box-shadow: var(--sombra-hover);
-      transform: translateX(4px);
-    }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
 
-    /* Ponto na linha do tempo */
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -2.4rem;
-      top: 1.5rem;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background-color: var(--cor-secundaria);
-      border: 3px solid var(--cor-primaria);
-    }
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+        }
 
-    .timeline-item h3 {
-      color: var(--cor-primaria);
-      font-size: 1.15rem;
-      margin-bottom: 0.3rem;
-    }
+        nav a:hover {
+            color: #2a5a8c;
+            text-decoration: underline;
+        }
 
-    .timeline-periodo {
-      font-size: 0.85rem;
-      color: var(--cor-secundaria);
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
+        /* Container Principal */
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
 
-    .timeline-item p {
-      color: var(--cor-texto-suave);
-      font-size: 0.95rem;
-    }
+        .titulo-secao {
+            color: #2a5a8c;
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
 
-    /* === GRADE DE IDIOMAS === */
-    .grade-idiomas {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.2rem;
-      margin-top: 2rem;
-    }
+        .subtitulo-secao {
+            color: #666;
+            margin-bottom: 30px;
+        }
 
-    .idioma-card {
-      background-color: var(--cor-fundo-card);
-      border: 1px solid var(--cor-borda);
-      border-radius: var(--raio);
-      padding: 1.4rem;
-      text-align: center;
-      box-shadow: var(--sombra);
-      transition: box-shadow var(--transicao), transform var(--transicao), background-color var(--transicao);
-    }
+        h3 {
+            color: #2a5a8c;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
 
-    .idioma-card:hover {
-      box-shadow: var(--sombra-hover);
-      transform: translateY(-4px);
-    }
+        /* === LINHA DO TEMPO DE FORMAÇÃO === */
+        .timeline {
+            border-left: 3px solid #2a5a8c;
+            padding-left: 20px;
+            margin-top: 20px;
+            margin-left: 10px;
+        }
 
-    .idioma-emoji {
-      font-size: 2.2rem;
-      margin-bottom: 0.6rem;
-    }
+        .timeline-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
 
-    .idioma-card h4 {
-      color: var(--cor-primaria);
-      font-size: 1.05rem;
-      margin-bottom: 0.3rem;
-    }
+        /* Bolinha da linha do tempo */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #f4f4f4;
+            border: 3px solid #2a5a8c;
+        }
 
-    .idioma-nivel {
-      font-size: 0.82rem;
-      color: var(--cor-texto-suave);
-    }
+        .timeline-item h4 {
+            color: #2a5a8c;
+            margin: 0 0 5px 0;
+            font-size: 1.2em;
+        }
 
-    /* === CURSOS EXTRAS === */
-    .grade-cursos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      margin-top: 2rem;
-    }
+        .timeline-periodo {
+            font-size: 0.9em;
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-    .curso-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      background-color: var(--cor-fundo-card);
-      border: 1px solid var(--cor-borda);
-      border-radius: var(--raio);
-      padding: 1.2rem;
-      box-shadow: var(--sombra);
-      transition: box-shadow var(--transicao), background-color var(--transicao);
-    }
+        .timeline-item p {
+            color: #555;
+            margin: 0;
+        }
 
-    .curso-item:hover {
-      box-shadow: var(--sombra-hover);
-    }
+        /* === GRADE DE IDIOMAS === */
+        .grade-idiomas {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
 
-    .curso-icone {
-      font-size: 1.6rem;
-      flex-shrink: 0;
-    }
+        .idioma-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            flex: 1;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
 
-    .curso-item h4 {
-      color: var(--cor-primaria);
-      font-size: 0.97rem;
-      margin-bottom: 0.2rem;
-    }
+        .idioma-emoji {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
 
-    .curso-item p {
-      font-size: 0.85rem;
-      color: var(--cor-texto-suave);
-    }
+        .idioma-card h4 {
+            margin: 0 0 5px 0;
+            color: #2a5a8c;
+        }
 
-    @media (max-width: 768px) {
-      .grade-cursos { grid-template-columns: 1fr; }
-    }
-  </style>
+        .idioma-nivel {
+            font-size: 0.9em;
+            color: #666;
+            margin: 0;
+        }
+
+        /* === CURSOS EXTRAS E CERTIFICAÇÕES === */
+        .grade-cursos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .curso-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .curso-icone {
+            font-size: 2em;
+        }
+
+        .curso-info h4 {
+            margin: 0 0 5px 0;
+            color: #2a5a8c;
+            font-size: 1em;
+        }
+
+        .curso-info p {
+            margin: 0;
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Ajuste para celular */
+        @media (max-width: 600px) {
+            nav, .grade-idiomas, .grade-cursos {
+                flex-direction: column;
+            }
+            .grade-cursos {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ============================================
-       NAVEGAÇÃO PRINCIPAL
-       ============================================ -->
-  <nav aria-label="Navegação principal">
-    <div class="nav-container">
-      <span class="nav-logo">Jennyfer Ribeiro</span>
-      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" role="list">
-        <li><a href="index.html">Sobre Mim</a></li>
-        <li><a href="formacao.html">Formação</a></li>
-        <li><a href="portfolio.html">Portfólio</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-      <button id="btn-tema" aria-label="Alternar tema">🌙 Escuro</button>
-    </div>
-  </nav>
+    <nav>
+        <div class="logo">Jennyfer Ribeiro</div>
+        <ul>
+            <li><a href="index.html">Sobre Mim</a></li>
+            <li><a href="formacao.html" style="color: #2a5a8c; font-weight: bold;">Formação</a></li>
+            <li><a href="portfolio.html">Portfólio</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
 
-  <!-- ============================================
-       CONTEÚDO PRINCIPAL
-       ============================================ -->
-  <main>
+    <main class="container">
 
-    <!-- Cabeçalho da seção -->
-    <h2 class="secao-titulo">Formação</h2>
-    <p class="secao-subtitulo">Minha trajetória acadêmica e de aprendizado contínuo</p>
+        <h1 class="titulo-secao">Minha Formação</h1>
+        <p class="subtitulo-secao">Trajetória acadêmica e cursos de aperfeiçoamento profissional.</p>
 
-    <!-- ===  FORMAÇÃO ACADÊMICA === -->
-    <h3 style="color: var(--cor-primaria); font-size:1.1rem; margin-bottom:0.5rem;">🎓 Formação Acadêmica</h3>
+        <h3>🎓 Formação Acadêmica</h3>
 
-    <div class="timeline">
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>Tecnólogo em Ciência de Dados</h4>
+                <p class="timeline-periodo">📅 08/2025 – 12/2027 | UNINTER - Campinas, SP</p>
+                <p>Formação focada em análise e modelagem de dados, estatística, linguagens de programação (Python e SQL) e inteligência artificial para apoio em tomadas de decisão.</p>
+            </div>
 
-      <!-- Item 1: Graduação atual -->
-      <div class="timeline-item">
-        <h3>Tecnologia da Informação / Análise e Desenvolvimento de Sistemas</h3>
-        <p class="timeline-periodo">📅 2024 – Em andamento · UNINTER Centro Universitário</p>
-        <p>Curso de graduação focado em desenvolvimento de software, lógica de programação, banco de dados, redes e fundamentos de programação web.</p>
-      </div>
-
-      <!-- Item 2: Ensino médio -->
-      <div class="timeline-item">
-        <h3>Ensino Médio Completo</h3>
-        <p class="timeline-periodo">📅 2021 – 2023 · Escola Estadual</p>
-        <p>Conclusão do ensino médio com destaque nas disciplinas de matemática e ciências da computação.</p>
-      </div>
-
-    </div>
-
-    <!-- === IDIOMAS === -->
-    <h3 style="color: var(--cor-primaria); font-size:1.1rem; margin-top:2.5rem; margin-bottom:0.5rem;">🌍 Idiomas</h3>
-
-    <div class="grade-idiomas">
-      <div class="idioma-card">
-        <div class="idioma-emoji">🇧🇷</div>
-        <h4>Português</h4>
-        <p class="idioma-nivel">Nativo</p>
-      </div>
-      <div class="idioma-card">
-        <div class="idioma-emoji">🇺🇸</div>
-        <h4>Inglês</h4>
-        <p class="idioma-nivel">Intermediário (B1)</p>
-      </div>
-      <div class="idioma-card">
-        <div class="idioma-emoji">🇪🇸</div>
-        <h4>Espanhol</h4>
-        <p class="idioma-nivel">Básico (A2)</p>
-      </div>
-    </div>
-
-    <!-- === CURSOS E CERTIFICAÇÕES === -->
-    <h3 style="color: var(--cor-primaria); font-size:1.1rem; margin-top:2.5rem; margin-bottom:0.5rem;">📜 Cursos &amp; Certificações</h3>
-
-    <div class="grade-cursos">
-
-      <div class="curso-item">
-        <span class="curso-icone">💻</span>
-        <div>
-          <h4>Introdução ao HTML e CSS</h4>
-          <p>Alura · 2024 · 40h</p>
+            <div class="timeline-item">
+                <h4>Assistente Administrativo</h4>
+                <p class="timeline-periodo">📅 08/2022 – 11/2022 | Senac São Paulo - SP</p>
+                <p>Capacitação nas rotinas administrativas, financeiras e organização de processos, o que me deu uma forte base analítica e organizacional.</p>
+            </div>
         </div>
-      </div>
 
-      <div class="curso-item">
-        <span class="curso-icone">⚙️</span>
-        <div>
-          <h4>JavaScript para Iniciantes</h4>
-          <p>Curso em Vídeo · 2024 · 30h</p>
+        <h3>🌍 Idiomas</h3>
+
+        <div class="grade-idiomas">
+            <div class="idioma-card">
+                <div class="idioma-emoji">🇧🇷</div>
+                <h4>Português</h4>
+                <p class="idioma-nivel">Nativo</p>
+            </div>
+            
+            <div class="idioma-card">
+                <div class="idioma-emoji">🇺🇸</div>
+                <h4>Inglês</h4>
+                <p class="idioma-nivel">Nível B2 (intermediário)</p>
+            </div>
         </div>
-      </div>
 
-      <div class="curso-item">
-        <span class="curso-icone">🗃️</span>
-        <div>
-          <h4>Fundamentos de Banco de Dados</h4>
-          <p>UNINTER · 2024 · 60h</p>
+        <h3>📜 Certificações & Conhecimentos Extras</h3>
+
+        <div class="grade-cursos">
+
+            <div class="curso-item">
+                <div class="curso-icone">🐍</div>
+                <div class="curso-info">
+                    <h4>Python for Data Science</h4>
+                    <p>Certificação concluída</p>
+                </div>
+            </div>
+
+            <div class="curso-item">
+                <div class="curso-icone">📊</div>
+                <div class="curso-info">
+                    <h4>Data Analysis Using Python</h4>
+                    <p>Certificação concluída</p>
+                </div>
+            </div>
+
+            <div class="curso-item">
+                <div class="curso-icone">📈</div>
+                <div class="curso-info">
+                    <h4>Data Visualization Using Python</h4>
+                    <p>Certificação concluída</p>
+                </div>
+            </div>
+
+            <div class="curso-item">
+                <div class="curso-icone">🗃️</div>
+                <div class="curso-info">
+                    <h4>Bancos de Dados & SQL</h4>
+                    <p>Conhecimento prático aplicado</p>
+                </div>
+            </div>
+
         </div>
-      </div>
 
-      <div class="curso-item">
-        <span class="curso-icone">🐙</span>
-        <div>
-          <h4>Git e GitHub Essencial</h4>
-          <p>DIO · 2024 · 10h</p>
-        </div>
-      </div>
+    </main>
 
-      <div class="curso-item">
-        <span class="curso-icone">🎨</span>
-        <div>
-          <h4>Design para Web com Figma</h4>
-          <p>Udemy · 2024 · 20h</p>
-        </div>
-      </div>
-
-      <div class="curso-item">
-        <span class="curso-icone">🔐</span>
-        <div>
-          <h4>Segurança Digital Básica</h4>
-          <p>Google Ateliê Digital · 2023 · 8h</p>
-        </div>
-      </div>
-
-    </div>
-
-  </main>
-
-  <!-- ============================================
-       RODAPÉ
-       ============================================ -->
-  <footer>
-    <p>&copy; 2025 Jennyfer de Souza Ribeiro · Todos os direitos reservados</p>
-  </footer>
-
-  <!-- Script compartilhado -->
-  <script src="js/main.js"></script>
+    <footer>
+        <p>&copy; 2026 - Desenvolvido por Jennyfer Ribeiro para a Disciplina de Ferramentas de Desenvolvimento Web</p>
+    </footer>
 
 </body>
 </html>
