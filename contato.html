@@ -1,509 +1,318 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jennyfer Ribeiro | Contato</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* === LAYOUT DA PÁGINA DE CONTATO === */
-    .contato-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 2rem;
-      margin-top: 1rem;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Jennyfer Ribeiro</title>
+    
+    <style>
+        /* Estilos Gerais do Site */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
 
-    /* === CARD DE INFORMAÇÕES === */
-    .info-card {
-      background-color: var(--cor-fundo-card);
-      border: 1px solid var(--cor-borda);
-      border-radius: var(--raio);
-      padding: 2rem;
-      box-shadow: var(--sombra);
-      transition: background-color var(--transicao);
-      height: fit-content;
-    }
+        /* Menu de Navegação */
+        nav {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .info-card h3 {
-      color: var(--cor-primaria);
-      margin-bottom: 1.5rem;
-    }
+        .logo {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #2a5a8c;
+        }
 
-    /* Item de contato (ícone + texto) */
-    .info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.2rem;
-    }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
 
-    .info-icone {
-      font-size: 1.4rem;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+        }
 
-    .info-item strong {
-      display: block;
-      color: var(--cor-texto);
-      font-size: 0.9rem;
-    }
+        nav a:hover {
+            color: #2a5a8c;
+            text-decoration: underline;
+        }
 
-    .info-item span {
-      color: var(--cor-texto-suave);
-      font-size: 0.88rem;
-    }
+        /* Container Principal */
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
 
-    /* Links de redes sociais */
-    .redes {
-      display: flex;
-      gap: 0.7rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
+        .titulo-secao {
+            color: #2a5a8c;
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
 
-    .rede-btn {
-      padding: 0.45rem 1rem;
-      border-radius: 6px;
-      border: 1.5px solid var(--cor-borda);
-      background: var(--cor-fundo);
-      color: var(--cor-texto);
-      font-size: 0.85rem;
-      font-family: 'DM Sans', sans-serif;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: all var(--transicao);
-    }
+        .subtitulo-secao {
+            color: #666;
+            margin-bottom: 30px;
+        }
 
-    .rede-btn:hover {
-      background-color: var(--cor-primaria);
-      color: #fff;
-      border-color: var(--cor-primaria);
-    }
+        /* Grid da página de contato */
+        .contato-grid {
+            display: flex;
+            gap: 20px;
+        }
 
-    /* === FORMULÁRIO === */
-    .form-card {
-      background-color: var(--cor-fundo-card);
-      border: 1px solid var(--cor-borda);
-      border-radius: var(--raio);
-      padding: 2rem;
-      box-shadow: var(--sombra);
-      transition: background-color var(--transicao);
-    }
+        /* Card Lateral de Informações */
+        .info-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            flex: 1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
 
-    .form-card h3 {
-      color: var(--cor-primaria);
-      margin-bottom: 1.5rem;
-    }
+        .info-card h3 {
+            color: #2a5a8c;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
 
-    /* Grupo de campo: label + input */
-    .form-grupo {
-      margin-bottom: 1.3rem;
-    }
+        .info-item {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
 
-    .form-grupo label {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--cor-texto);
-      margin-bottom: 0.45rem;
-    }
+        .info-item strong {
+            display: block;
+            color: #2a5a8c;
+            margin-bottom: 3px;
+        }
 
-    /* Asterisco obrigatório */
-    .form-grupo label span {
-      color: #c0392b;
-    }
+        /* Botões de Redes Sociais */
+        .redes {
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
-    /* Estilo dos campos de input */
-    .form-grupo input,
-    .form-grupo textarea {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1.5px solid var(--cor-borda);
-      border-radius: 6px;
-      background-color: var(--cor-fundo);
-      color: var(--cor-texto);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      transition: border-color var(--transicao), box-shadow var(--transicao), background-color var(--transicao);
-      outline: none;
-    }
+        .rede-btn {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: 0.3s;
+        }
 
-    .form-grupo input:focus,
-    .form-grupo textarea:focus {
-      border-color: var(--cor-primaria);
-      box-shadow: 0 0 0 3px rgba(26, 58, 92, 0.12);
-    }
+        .rede-btn:hover {
+            background-color: #2a5a8c;
+            color: #fff;
+            border-color: #2a5a8c;
+        }
 
-    /* Campo com erro de validação */
-    .form-grupo input.erro,
-    .form-grupo textarea.erro {
-      border-color: #c0392b;
-      box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.12);
-    }
+        /* Formulário de Contato */
+        .form-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            flex: 2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
 
-    .form-grupo textarea {
-      resize: vertical;
-      min-height: 130px;
-    }
+        .form-card h3 {
+            color: #2a5a8c;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
 
-    /* Mensagem de erro individual */
-    .erro-msg {
-      color: #c0392b;
-      font-size: 0.82rem;
-      margin-top: 0.3rem;
-      display: none; /* ocultado por padrão; JS mostra quando necessário */
-    }
+        .form-grupo {
+            margin-bottom: 15px;
+        }
 
-    /* Botão de envio */
-    .btn-enviar {
-      width: 100%;
-      padding: 0.85rem;
-      background-color: var(--cor-primaria);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color var(--transicao), transform var(--transicao);
-      letter-spacing: 0.3px;
-    }
+        .form-grupo label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+            font-size: 0.9em;
+        }
 
-    .btn-enviar:hover {
-      background-color: var(--cor-secundaria);
-      color: #1a3a5c;
-    }
+        .form-grupo input, .form-grupo textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Garante que o padding não quebre a largura */
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-    .btn-enviar:active {
-      transform: scale(0.98);
-    }
+        .form-grupo input:focus, .form-grupo textarea:focus {
+            border-color: #2a5a8c;
+            outline: none;
+        }
 
-    /* === MODAL DE CONFIRMAÇÃO === */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
+        .btn-enviar {
+            background-color: #2a5a8c;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1em;
+            margin-top: 10px;
+        }
 
-    .modal-overlay.visivel {
-      opacity: 1;
-      pointer-events: all;
-    }
+        .btn-enviar:hover {
+            background-color: #1a3a5c;
+        }
 
-    .modal-box {
-      background-color: var(--cor-fundo-card);
-      border-radius: var(--raio);
-      padding: 2.5rem;
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-      transform: scale(0.9);
-      transition: transform 0.3s ease, background-color var(--transicao);
-    }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 40px;
+        }
 
-    .modal-overlay.visivel .modal-box {
-      transform: scale(1);
-    }
-
-    .modal-icone {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .modal-box h3 {
-      color: var(--cor-primaria);
-      margin-bottom: 0.7rem;
-    }
-
-    .modal-box p {
-      color: var(--cor-texto-suave);
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn-fechar-modal {
-      padding: 0.6rem 2rem;
-      background-color: var(--cor-primaria);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: background-color var(--transicao);
-    }
-
-    .btn-fechar-modal:hover {
-      background-color: var(--cor-secundaria);
-      color: #1a3a5c;
-    }
-
-    @media (max-width: 768px) {
-      .contato-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+        /* Responsivo para celular */
+        @media (max-width: 600px) {
+            .contato-grid {
+                flex-direction: column;
+            }
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ============================================
-       NAVEGAÇÃO PRINCIPAL
-       ============================================ -->
-  <nav aria-label="Navegação principal">
-    <div class="nav-container">
-      <span class="nav-logo">Jennyfer Ribeiro</span>
-      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" role="list">
-        <li><a href="index.html">Sobre Mim</a></li>
-        <li><a href="formacao.html">Formação</a></li>
-        <li><a href="portfolio.html">Portfólio</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-      <button id="btn-tema" aria-label="Alternar tema">🌙 Escuro</button>
-    </div>
-  </nav>
+    <nav>
+        <div class="logo">Jennyfer Ribeiro</div>
+        <ul>
+            <li><a href="index.html">Sobre Mim</a></li>
+            <li><a href="formacao.html">Formação</a></li>
+            <li><a href="portfolio.html">Portfólio</a></li>
+            <li><a href="contato.html" style="color: #2a5a8c; font-weight: bold;">Contato</a></li>
+        </ul>
+    </nav>
 
-  <!-- ============================================
-       CONTEÚDO PRINCIPAL
-       ============================================ -->
-  <main>
+    <main class="container">
+        <h1 class="titulo-secao">Contato</h1>
+        <p class="subtitulo-secao">Gostou do meu perfil ou tem alguma dúvida? Me mande uma mensagem!</p>
 
-    <h2 class="secao-titulo">Contato</h2>
-    <p class="secao-subtitulo">Ficou com alguma dúvida ou quer bater um papo? Entre em contato!</p>
+        <div class="contato-grid">
+            
+            <aside class="info-card">
+                <h3>📬 Minhas Informações</h3>
 
-    <div class="contato-grid">
+                <div class="info-item">
+                    <strong>📧 E-mail</strong>
+                    <span>jennyfersribeiro@gmail.com</span>
+                </div>
 
-      <!-- Informações de contato -->
-      <aside class="info-card">
-        <h3>📬 Informações</h3>
+                <div class="info-item">
+                    <strong>📱 Telefone / WhatsApp</strong>
+                    <span>(19) 99524-7371</span>
+                </div>
 
-        <div class="info-item">
-          <span class="info-icone">📧</span>
-          <div>
-            <strong>E-mail</strong>
-            <span>jennyfer.ribeiro@email.com</span>
-          </div>
+                <div class="info-item">
+                    <strong>📍 Localização</strong>
+                    <span>Jd. Stella, Campinas - SP</span>
+                </div>
+
+                <div class="redes">
+                    <a href="https://www.linkedin.com/in/jennysribeiro" target="_blank" class="rede-btn">💼 LinkedIn</a>
+                    <a href="https://github.com/jennyferribeiro" target="_blank" class="rede-btn">🐙 GitHub</a>
+                </div>
+            </aside>
+
+            <section class="form-card">
+                <h3>✉️ Me envie uma mensagem</h3>
+
+                <form id="form-contato" onsubmit="validarFormulario(event)">
+                    
+                    <div class="form-grupo">
+                        <label for="nome">Nome completo:</label>
+                        <input type="text" id="nome" placeholder="Digite seu nome">
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="email">E-mail para contato:</label>
+                        <input type="text" id="email" placeholder="exemplo@email.com">
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="mensagem">Sua mensagem:</label>
+                        <textarea id="mensagem" rows="5" placeholder="Escreva aqui..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+
+                </form>
+            </section>
+
         </div>
+    </main>
 
-        <div class="info-item">
-          <span class="info-icone">📍</span>
-          <div>
-            <strong>Localização</strong>
-            <span>Brasil</span>
-          </div>
-        </div>
+    <footer>
+        <p>&copy; 2026 - Desenvolvido por Jennyfer Ribeiro para a Disciplina de Ferramentas de Desenvolvimento Web</p>
+    </footer>
 
-        <div class="info-item">
-          <span class="info-icone">⏰</span>
-          <div>
-            <strong>Disponibilidade</strong>
-            <span>Seg – Sex, das 9h às 18h</span>
-          </div>
-        </div>
+    <script>
+        function validarFormulario(evento) {
+            // Impede a página de recarregar ao clicar no botão
+            evento.preventDefault();
 
-        <!-- Links de redes sociais -->
-        <div class="redes">
-          <a href="https://github.com/jennyferribeiro" target="_blank" rel="noopener noreferrer" class="rede-btn">🐙 GitHub</a>
-          <a href="https://linkedin.com/in/jennyferribeiro" target="_blank" rel="noopener noreferrer" class="rede-btn">💼 LinkedIn</a>
-        </div>
-      </aside>
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+            var mensagem = document.getElementById('mensagem').value;
 
-      <!-- Formulário de contato -->
-      <section class="form-card">
-        <h3>✉️ Enviar Mensagem</h3>
+            // Verifica se algum campo está vazio
+            if (nome === "" || email === "" || mensagem === "") {
+                alert("Atenção: Por favor, preencha todos os campos do formulário.");
+                return false;
+            }
 
-        <!--
-          FORMULÁRIO DE CONTATO
-          A validação é feita inteiramente em JavaScript (sem submit padrão),
-          conforme exigência da atividade.
-        -->
-        <form id="form-contato" novalidate>
+            // Verifica se o email tem um arroba
+            if (email.indexOf("@") === -1) {
+                alert("Erro: O e-mail digitado não parece ser válido.");
+                return false;
+            }
 
-          <!-- Campo: Nome -->
-          <div class="form-grupo">
-            <label for="nome">Nome completo <span>*</span></label>
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              placeholder="Seu nome"
-              autocomplete="name"
-            />
-            <p class="erro-msg" id="erro-nome">Por favor, informe seu nome completo.</p>
-          </div>
-
-          <!-- Campo: E-mail -->
-          <div class="form-grupo">
-            <label for="email">E-mail <span>*</span></label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="seu@email.com"
-              autocomplete="email"
-            />
-            <p class="erro-msg" id="erro-email">Por favor, informe um e-mail válido (ex: usuario@dominio.com).</p>
-          </div>
-
-          <!-- Campo: Mensagem -->
-          <div class="form-grupo">
-            <label for="mensagem">Mensagem <span>*</span></label>
-            <textarea
-              id="mensagem"
-              name="mensagem"
-              placeholder="Escreva sua mensagem aqui..."
-            ></textarea>
-            <p class="erro-msg" id="erro-mensagem">Por favor, escreva uma mensagem antes de enviar.</p>
-          </div>
-
-          <button type="submit" class="btn-enviar">Enviar Mensagem ✉️</button>
-
-        </form>
-      </section>
-
-    </div>
-
-  </main>
-
-  <!-- ============================================
-       MODAL DE CONFIRMAÇÃO
-       Exibido após envio válido do formulário
-       ============================================ -->
-  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
-    <div class="modal-box">
-      <div class="modal-icone">✅</div>
-      <h3 id="modal-titulo">Mensagem enviada!</h3>
-      <p>Obrigada pelo contato, sua mensagem foi recebida com sucesso. Responderei em breve!</p>
-      <button class="btn-fechar-modal" id="btn-fechar-modal">Fechar</button>
-    </div>
-  </div>
-
-  <!-- ============================================
-       RODAPÉ
-       ============================================ -->
-  <footer>
-    <p>&copy; 2025 Jennyfer de Souza Ribeiro · Todos os direitos reservados</p>
-  </footer>
-
-  <!-- Script compartilhado: tema, menu, link ativo -->
-  <script src="js/main.js"></script>
-
-  <script>
-    // ============================================
-    // VALIDAÇÃO E ENVIO DO FORMULÁRIO DE CONTATO
-    // Valida os campos antes do envio e exibe modal
-    // ============================================
-    (function () {
-
-      var form      = document.getElementById('form-contato');
-      var modal     = document.getElementById('modal');
-      var btnFechar = document.getElementById('btn-fechar-modal');
-
-      // --- Função auxiliar: valida formato de e-mail ---
-      // Usa expressão regular para checar padrão usuario@dominio.com
-      function emailValido(valor) {
-        var regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-        return regex.test(valor.trim());
-      }
-
-      // --- Função auxiliar: exibe ou oculta erro de um campo ---
-      function marcarErro(campo, msgId, temErro) {
-        var msg = document.getElementById(msgId);
-        if (temErro) {
-          campo.classList.add('erro');
-          msg.style.display = 'block';
-        } else {
-          campo.classList.remove('erro');
-          msg.style.display = 'none';
+            // Se passar por todas as verificações, exibe mensagem de sucesso
+            alert("Obrigada pelo contato, " + nome + "! Sua mensagem foi recebida com sucesso.");
+            
+            // Limpa o formulário
+            document.getElementById('form-contato').reset();
         }
-      }
-
-      // --- Remove erro ao usuário começar a digitar ---
-      ['nome', 'email', 'mensagem'].forEach(function (id) {
-        var campo = document.getElementById(id);
-        campo.addEventListener('input', function () {
-          campo.classList.remove('erro');
-          document.getElementById('erro-' + id).style.display = 'none';
-        });
-      });
-
-      // --- Evento de envio do formulário ---
-      form.addEventListener('submit', function (evento) {
-        // Impede o comportamento padrão do navegador (recarregar a página)
-        evento.preventDefault();
-
-        var campoNome     = document.getElementById('nome');
-        var campoEmail    = document.getElementById('email');
-        var campoMensagem = document.getElementById('mensagem');
-
-        var nome     = campoNome.value.trim();
-        var email    = campoEmail.value.trim();
-        var mensagem = campoMensagem.value.trim();
-
-        // Valida cada campo e exibe/oculta mensagem de erro
-        var nomeOk     = nome.length >= 2;
-        var emailOk    = emailValido(email);
-        var mensagemOk = mensagem.length >= 5;
-
-        marcarErro(campoNome,     'erro-nome',     !nomeOk);
-        marcarErro(campoEmail,    'erro-email',    !emailOk);
-        marcarErro(campoMensagem, 'erro-mensagem', !mensagemOk);
-
-        // Se algum campo for inválido, interrompe aqui
-        if (!nomeOk || !emailOk || !mensagemOk) {
-          return;
-        }
-
-        // === TODOS OS CAMPOS VÁLIDOS ===
-
-        // Limpa os campos do formulário
-        form.reset();
-
-        // Remove classes de erro residuais
-        [campoNome, campoEmail, campoMensagem].forEach(function (c) {
-          c.classList.remove('erro');
-        });
-
-        // Exibe o modal de confirmação
-        modal.classList.add('visivel');
-      });
-
-      // --- Fecha o modal ao clicar no botão ---
-      btnFechar.addEventListener('click', function () {
-        modal.classList.remove('visivel');
-      });
-
-      // --- Fecha o modal ao clicar fora da caixa ---
-      modal.addEventListener('click', function (e) {
-        if (e.target === modal) {
-          modal.classList.remove('visivel');
-        }
-      });
-
-      // --- Fecha o modal com a tecla Escape ---
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('visivel')) {
-          modal.classList.remove('visivel');
-        }
-      });
-
-    })();
-  </script>
+    </script>
 
 </body>
 </html>
